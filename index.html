@@ -77,10 +77,24 @@
     const multiplier = Math.pow(10, precision || 0);
     return Math.round(value * multiplier) / multiplier;
   }
+  function validate(inp) {
+    if (isNaN(inp) || inp < 1 || inp > 842938) {
+      return false;
+    } else {
+      return true;
+    }
+  }
   function calculate() {
     const freq = parseInt(document.getElementById("mhz").value);
     const cas = parseInt(document.getElementById("cas").value);
-    const result = round((cas / (freq / 2)) * 2000, 1);
+    let result = 0;
+    if (!validate(freq) || !validate(cas)) {
+      result = "0";
+      alert("invalid input");
+    } else {
+      result = round((cas / (freq / 2)) * 2000, 1);
+    }
+
     document.getElementById("result").innerText = result;
   }
 </script>
