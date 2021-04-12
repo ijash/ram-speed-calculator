@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-     <meta charset="UTF-8" />
+    <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ram Speed Calculator</title>
@@ -13,25 +13,30 @@
       crossorigin="anonymous"
     />
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RTM21LX6B8"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-RTM21LX6B8"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-      gtag('config', 'G-RTM21LX6B8');
+      gtag("config", "G-RTM21LX6B8");
     </script>
   </head>
 
   <body>
     <div class="container text-center">
       <h1>RAM Speed Calculator</h1>
-      <p>Calculate RAM speed or clock interval in nanosecond format</p>
+      <p>Calculate Ram speed clock interval in nanosecond format</p>
       <hr />
 
-      <div class="container">
+      <div class="container bg-light shadow-sm">
         <div class="row">
-          <div class="col-sm">
+          <div class="col-md">
             <label class="form-label fw-bold">DDR Frequency (MHz)</label>
             <input
               class="form-control"
@@ -42,7 +47,7 @@
               id="mhz"
             />
           </div>
-          <div class="col-sm">
+          <div class="col-md">
             <label class="form-label fw-bold">CAS/CL</label>
             <input
               class="form-control"
@@ -59,7 +64,7 @@
         </p>
         <input
           type="button"
-          class="btn btn-primary m-3 btn-sm"
+          class="btn btn-primary m-3 btn-sm shadow-sm"
           value="Calculate"
           onclick="calculate()"
         />
