@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -34,7 +35,7 @@
       <p>Calculate Ram speed clock interval in nanosecond format</p>
       <hr />
 
-      <div class="container bg-light shadow-sm">
+      <div class="container bg-light shadow-sm rounded-2 my-5">
         <div class="row">
           <div class="col-md">
             <label class="form-label fw-bold">DDR Frequency (MHz)</label>
@@ -69,8 +70,78 @@
           onclick="calculate()"
         />
       </div>
-            <div>
-        <hr />
+
+      <div class="container col-sm-6 bg-light rounded-2 shadow-sm p-3">
+        <div class="my-1">
+          <h2 id="ram-speed-vs-ram-latency" class="my-2 text-primary">
+            RAM speed vs. RAM latency
+          </h2>
+          <div class="text-start">
+            <p>
+              While a RAM’s data transfer rate tells you how many mega transfers
+              (1,000,000 data transfers) the RAM can do in one second (a
+              DDR4-3200 RAM can conduct 3,200 mega transfers in 1 second), its
+              CAS latency is also important for understanding RAM performance.
+            </p>
+            <p>
+              CAS latency tells you the total number of cycles it takes for the
+              RAM to send data, but you should also consider the duration of
+              each cycle to get a better idea of that RAM’s overall latency.
+            </p>
+            <p>Simply, Lower latency is faster.</p>
+            <p>
+              <a
+                href="https://www.tomshardware.com/reviews/cas-latency-ram-cl-timings-glossary-definition,6011.html"
+                ><em>source</em></a
+              >
+            </p>
+          </div>
+        </div>
+        <div class="my-1">
+          <h2 class="my-2 text-primary" id="finding-the-ram-specification">
+            Finding the RAM specification
+          </h2>
+          <div class="text-start">
+            <p>
+              Several program such as
+              <a href="https://www.cpuid.com/softwares/cpu-z.html">CPU-Z</a> or
+              <a href="https://www.ccleaner.com/speccy">Speccy</a> will tell
+              your RAM speed. But, if you&#39;re having difficulties on finding
+              ram timing (<strong>CL/CAS</strong>), it usually printed on the
+              RAM itself. The label example as shown below.
+            </p>
+            <img class="img-fluid" src="/img/ram-label.png" alt="RAM Label" />
+            <h3 class="my-2 text-primary" id="ram-frequency">RAM frequency</h3>
+            <p>
+              Ram speed or Frequency usually written on label right after the
+              RAM type. In the example above, it&#39;s <code>DDR4-3200</code> or
+              the frequency is 3200MHz. In <em>PC4</em> Specification, the
+              frequency is multiplied by 8, so it reads <code>PC4-25600</code>,
+              denotes overall transfer rate, in megabytes per second. In
+              computer readings, it&#39;s normal if the speed reads half of it,
+              such as 1600Mhz for 3200Mhz because of
+              <strong>DDR(Double Data Rate)</strong>. Obvious isn&#39;t it?
+            </p>
+            <h3 class="my-2 text-primary" id="ram-timing">RAM timing</h3>
+            <p>
+              <strong>Column Address Strobe (CAS) latency</strong> can be
+              referred to in several different ways. A RAM kit with a CAS
+              latency of 14, for example, can be described as CAS 14 or CL14 or
+              as having CAS 14 timings. To get the <strong>CAS/CL</strong>, just
+              look at RAM Label, and you&#39;ll find <code>CL14-14-14-34</code>.
+              The first parameter will be the <strong>CL/CAS</strong> latency,
+              which is 14.
+            </p>
+            <p>
+              This timing specification is standardized by
+              <a href="https://www.jedec.org/">JEDEC</a>, more about it
+              <a href="https://en.wikipedia.org/wiki/Memory_timings">here</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div>
         <p>By <a href="https://www.github.com/ijash">Ijash</a>.</p>
         <a href="https://www.github.com/ijash/ram-speed-calculator/"
           >Github Repository</a
